@@ -1,0 +1,51 @@
+# =============== #
+# Unity generated, builds#
+# =============== #
+[Tt]emp/
+[Oo]bj/
+UnityGenerated/
+[Ll]ibrary/
+[Bb]uilds/
+[Bb]uild/
+.vs/
+*.dotsettings
+/Assets/AssetStoreTools*
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+ExportedObj/
+*.svd
+*.userprefs
+*.csproj
+*.pidb
+*.suo
+*.sln
+*.user
+*.unityproj
+*.booproj
+.vs/ 
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+# ============ #
+# Protected Assets #
+# ============ #
+#Ex 
+#Assets/T4*
+#Assets/UnityVS
+# Unity3D Generated File On Crash Reports
+sysinfo.txt
+
+# Builds
+*.apk
+*.unitypackage
+PunchOut VR/.idea/
+PunchOut VR/Assets/Plugins/Editor/JetBrains/
+PunchOut VR/Assets/Plugins/Editor/JetBrains.meta
