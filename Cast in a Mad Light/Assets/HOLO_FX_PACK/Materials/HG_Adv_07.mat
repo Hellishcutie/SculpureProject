@@ -5,7 +5,8 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: HG_Adv_07
   m_Shader: {fileID: 4800000, guid: 79aed62ebf633114bb3e8df1cea2425f, type: 3}
   m_ShaderKeywords: _DIST_CHROM_ON _EMISSION _GLITCHCOLOR_ON _X_ON _Y_ON
