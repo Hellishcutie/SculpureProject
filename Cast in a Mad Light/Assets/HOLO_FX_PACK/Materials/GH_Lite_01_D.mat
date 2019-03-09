@@ -94,7 +94,7 @@ Material:
     - _Scale: 10
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _Speed: 0.422
+    - _Speed: 0.442
     - _Speed_Up: 0
     - _SrcBlend: 1
     - _UVSec: 0
@@ -105,7 +105,7 @@ Material:
     - _cut_level: 10
     - _deform: 0
     - _glitchColor: 1
-    - _intensity: 0
+    - _intensity: 11.08
     - _monchrom: 1
     - _monochrom: 0
     - _noise_details: 5.96
