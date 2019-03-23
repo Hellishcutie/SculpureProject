@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MirrorObject: {fileID: 126772}
-  VRMode: 0
+  VRMode: 1
 --- !u!1 &123684
 GameObject:
   m_ObjectHideFlags: 0
