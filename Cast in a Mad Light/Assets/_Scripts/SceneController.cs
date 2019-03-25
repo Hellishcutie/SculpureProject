@@ -6,7 +6,8 @@ public class SceneController : MonoBehaviour
 {
     public InteractionDetection[] lightBulbs;
     public float transitionThresholdTime = 1f;
-    public int numberLightsForTrigger = 3;
+    public int numberRecentTouchesForTrigger = 5;
+    public int numberTouchedTrigger = 10;
 
     public GameObject scene2;
     public AuraAPI.Aura aura;
@@ -43,10 +44,12 @@ public class SceneController : MonoBehaviour
                 }
             }
         }
-        //if(numberTouched >=3)
-        if(numberTouchedBeforeThreshold >= numberLightsForTrigger)
+        if(numberTouched >= 10)
         {
-            DoSceneTransition();
+            if(numberTouchedBeforeThreshold >= numberRecentTouchesForTrigger)
+            {
+                DoSceneTransition();
+            }
         }
 
         if(Input.GetKeyDown(KeyCode.Space))

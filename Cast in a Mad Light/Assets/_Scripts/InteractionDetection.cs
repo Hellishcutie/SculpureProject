@@ -48,6 +48,10 @@ public class InteractionDetection : MonoBehaviour
 
     public float lastTouchTime = -1;
 
+    private float defaultDistort;
+    private float defaultLightIntensity;
+    private float defaultLightRange;
+
     private void Awake()
     {
         if (_renderer == null)
@@ -62,11 +66,17 @@ public class InteractionDetection : MonoBehaviour
         if(_renderer)
         {
             defaultColor = _renderer.material.GetColor("_Color");
+            defaultDistort = _renderer.material.GetFloat("_deform");
         }
 
         if(!_light)
         {
             _light = GetComponentInChildren<Light>();
+        }
+        if (_light)
+        {
+            defaultLightIntensity = _light.intensity;
+            defaultLightRange = _light.range;
         }
     }
 
@@ -97,6 +107,15 @@ public class InteractionDetection : MonoBehaviour
             {
                 StopCoroutine(fadeCoroutine);
                 fadeCoroutine = null;
+
+                _renderer.material.SetFloat("_intensity", defaultDistort);
+                _renderer.material.SetFloat("_deform", defaultDistort);
+
+                _renderer.material.SetColor("_Color", defaultColor);
+
+                _light.intensity = defaultLightIntensity;
+                _light.range = defaultLightRange;
+                _light.color = defaultColor;
             }
             fadeCoroutine = StartCoroutine(CoHitDistort(2f));
 
@@ -109,89 +128,26 @@ public class InteractionDetection : MonoBehaviour
         }
     }
 
-
-    private void OnTriggerStay(Collider other)
-    {
-        return;
-        if (other.CompareTag("Player") == false)
-            return;
-
-        if (stay)
-        {
-            stayTime = stayTime + Time.fixedDeltaTime;
-
-            if (stayTime > minStayTime)
-            {
-                //distort += distortPerSecond * Time.fixedDeltaTime;// detaTime;
-                stayTime = Mathf.Clamp(stayTime, 0f, maxStayTime);
-                float lerp = (stayTime - minStayTime) / (maxStayTime - minStayTime);
-                distort = deformCurve.Evaluate(lerp) * maxDistort;
-
-                //distort 
-                Debug.Log("Staying");
-                _renderer.material.SetFloat("_intensity", intensityCurve.Evaluate(lerp) * maxIntensity);
-                _renderer.material.SetFloat("_deform", deformCurve.Evaluate(lerp) * maxDeform);
-                //Debug.Log(_renderer.sharedMaterial.GetFloat("_intensity"));
-                //Debug.Log(_renderer.sharedMaterial.GetFloat("_deform"));
-
-                
-
-                //exponential increase testing
-                
-
-            }
-            else
-            {
-                //stayTime = stayTime + Time.fixedDeltaTime;
-            }
-
-            
-        }
-        
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        return;
-        if (other.CompareTag("Player") == false)
-            return;
-        if (exit)
-        {
-            //_renderer.material.SetFloat("_intensity", 0);
-            //_renderer.material.SetFloat("_deform", 0);
-            //Debug.Log(_renderer.sharedMaterial.GetFloat("_intensity"));
-            //Debug.Log(_renderer.sharedMaterial.GetFloat("_deform"));
-
-
-            fadeCoroutine = StartCoroutine(CoFadeDistort(2f));
-
-
-            stayTime = 0.0f;
-            Debug.Log("exit");
-        }
-    }
-
-
-
     private IEnumerator CoHitDistort(float duration)
     {
-        float startDistort = _renderer.material.GetFloat("_deform");
-        float currentDistort = startDistort;
-        float startLightIntensity = _light.intensity;
-        float startLightRange = _light.range;
+        //float startDistort = _renderer.material.GetFloat("_deform");
+        //float startLightIntensity = _light.intensity;
+        //float startLightRange = _light.range;
+        float currentDistort = defaultDistort;
         float timer = 0f;
         while (timer <= duration)
         {
             timer += Time.deltaTime;
             float lerp = timer / duration;
-            currentDistort = Mathf.Lerp(maxDeform, 0, lerp);
+            currentDistort = Mathf.Lerp(maxDeform, defaultDistort, lerp);
             _renderer.material.SetFloat("_intensity", currentDistort);
             _renderer.material.SetFloat("_deform", currentDistort);
 
             _renderer.material.SetColor("_Color", Color.Lerp(hitColor, defaultColor, lerp));
 
-            _light.intensity = Mathf.Lerp(hitLightIntensity, startLightIntensity, lerp);
-            _light.range = Mathf.Lerp(hitLightRange, startLightRange, lerp);
-
+            _light.intensity = Mathf.Lerp(hitLightIntensity, defaultLightIntensity, lerp);
+            _light.range = Mathf.Lerp(hitLightRange, defaultLightRange, lerp);
+            _light.color = Color.Lerp(hitColor, defaultColor, lerp);
             //Debug.Log(_renderer.sharedMaterial.GetFloat("_intensity"));
             //Debug.Log(_renderer.sharedMaterial.GetFloat("_deform"));
             yield return null;

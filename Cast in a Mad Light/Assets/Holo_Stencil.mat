@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Holo_Stencil
-  m_Shader: {fileID: 4800000, guid: 6190044a0059e154a99743d775dd4a1b, type: 3}
+  m_Shader: {fileID: 4800000, guid: 972ae44c3772b184b81d2dd213da97b7, type: 3}
   m_ShaderKeywords: _EMISSION _GLITCHCOLOR_ON _X_ON _Y_ON
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
