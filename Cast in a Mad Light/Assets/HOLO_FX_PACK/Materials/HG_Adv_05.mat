@@ -75,9 +75,9 @@ Material:
     - Zoom: 10.89
     - _Amount: 1
     - _Amplitude: 100
-    - _Bias: 0.112
+    - _Bias: 0.187
     - _BumpScale: 1
-    - _Circle_wave: 10.6
+    - _Circle_wave: 15.4
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _Distance: 2
@@ -91,34 +91,35 @@ Material:
     - _Opacity: 1
     - _Opacity_gl: 1
     - _OriginalUVSwitch: 0
-    - _OrigineX: 0.5
+    - _OrigineX: 0.51
     - _OrigineY: 0
     - _Parallax: 0.02
-    - _Power: 1.364
+    - _Power: 1.14
     - _Rotation: 0
-    - _Scale: 9.9
+    - _Scale: 10
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _Speed: 0.321
+    - _Speed: 0.171
     - _Speed_Up: 10
     - _Speed_face: 10
-    - _Speed_wave: 112.2
+    - _Speed_wave: 148.86
     - _SrcBlend: 1
+    - _StencilMask: 3
     - _UVSec: 0
     - _X: 1
     - _Y: 1
     - _ZWrite: 1
     - _Zoom: 1
     - _a: 12.5
-    - _cut_level: 6
-    - _deform: 1.42
+    - _cut_level: 4.58
+    - _deform: 4.28
     - _dist_chrom: 0
     - _glitchColor: 1
     - _grey: 1
     - _intensity: 10
     - _mask_type: 0
     - _monochrom: 0
-    - _noise_details: 7.39
+    - _noise_details: 6.74
     - _t: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
