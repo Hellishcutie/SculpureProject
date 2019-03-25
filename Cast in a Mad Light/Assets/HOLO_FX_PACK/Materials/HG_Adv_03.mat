@@ -104,6 +104,7 @@ Material:
     - _Speed_face: 10
     - _Speed_wave: 120
     - _SrcBlend: 1
+    - _StencilMask: 2
     - _UVSec: 0
     - _X: 1
     - _Y: 0

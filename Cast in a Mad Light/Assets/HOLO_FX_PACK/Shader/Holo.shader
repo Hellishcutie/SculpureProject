@@ -38,6 +38,7 @@ Shader "HOLO/Holo"
 		_Amount("Amount", Range(0, 1)) = 0
 
 
+		_StencilMask("Stencil Mask", Int) = 0
 
 	}
 
@@ -50,8 +51,16 @@ Shader "HOLO/Holo"
         // Transparent: 3000     -     2700 - 3599 = Transparent
         // Overlay    : 4000     -     3600 - 5000 = Overlay
 		Tags { "Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent" }
+		
 		Pass
 		{
+			Stencil
+			{
+				Ref[_StencilMask]
+				Comp equal
+				Pass keep
+				Fail keep
+			}
 			Blend SrcAlpha OneMinusSrcAlpha
 			Zwrite on
 			ZTest on

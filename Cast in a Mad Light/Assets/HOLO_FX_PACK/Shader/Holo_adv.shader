@@ -52,7 +52,7 @@ Shader "HOLO/Holo_adv"
 
 
 
-
+		_StencilMask("Stencil Mask", Int) = 0
 	}
 
 	Subshader
@@ -66,6 +66,13 @@ Shader "HOLO/Holo_adv"
 		Tags { "Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent" }
 		Pass
 		{
+			Stencil
+			{
+				Ref[_StencilMask]
+				Comp equal
+				Pass keep
+				Fail keep
+			}
 			Blend SrcAlpha OneMinusSrcAlpha
 			Zwrite on
 			ZTest on
